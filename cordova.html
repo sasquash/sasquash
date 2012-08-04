@@ -1,0 +1,45 @@
+
+<!-- Cordova Page -->
+<div data-role="page" id="cordova" data-theme="a">
+
+
+    <div data-role="content" class="ui-content" role="main"> 
+
+        <div data-role="controlgroup" data-type="horizontal" >
+
+            <ul id="info" data-role="listview" data-theme="a"> 
+                <li><h4>Platform: <span id="platform"> &nbsp;</span>,   Version: <span id="version">&nbsp;</span></h4></li>
+                <li><h4>UUID: <span id="uuid"> &nbsp;</span>,   Name: <span id="name">&nbsp;</span></h4></li>
+                <li><h4>Width: <span id="width"> &nbsp;</span>,   Height: <span id="height">&nbsp;
+                </span>, Color Depth: <span id="colorDepth"></span></h4></li>
+            </ul>
+
+
+            <ul id="accel-data" data-role="listview" data-theme="a"> 
+                <li><dt>X:</dt><dd id="x">&nbsp;</dd></li>
+                <li><dt>Y:</dt><dd id="y">&nbsp;</dd></li>
+                <li> <dt>Z:</dt><dd id="z">&nbsp;</dd></li>
+            </ul>
+        </div>
+
+        <div data-role="controlgroup" data-type="vertical" >
+         <ul data-role="listview" data-theme="a" data-filter="true"> 
+            <li><a href="#" class="btn large" onclick="toggleAccel();">Toggle Accelerometer</a> </li>
+            <li><a href="#" class="btn large" onclick="getLocation();">Get Location</a></li>
+            <li><a href="tel:411" class="btn large">Call 411</a></li>
+            <li><a href="#" class="btn large" onclick="beep();">Beep</a></li>
+            <li><a href="#" class="btn large" onclick="vibrate();">Vibrate</a></li>
+            <li><a href="#" class="btn large" onclick="show_pic();">Get a Picture</a></li>
+            <li><a href="#" class="btn large" onclick="get_contacts();return false;">Get Phone's Contacts</a></li>
+            <li><a href="#" class="btn large" onclick="check_network();return false;">Check Network</a></li>
+            <li><a href="#" class="btn large" onclick="toggleCompass();return false;">Toggle Compass</a></li>
+        </ul>
+        <dl>
+            <dt>Compass Heading:</dt><dd id="h">Off</dd>
+        </dl>
+        <div id="viewport" class="viewport" style="display: none;">
+          <img style="width:60px;height:60px" id="test_img" src="" />
+      </div>
+  </div>
+</div>
+</div>

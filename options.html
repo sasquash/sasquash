@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/themes/default.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <link rel="apple-touch-startup-image" href="http://jquerymobile.com/demos/1.0a4.1/docs/_assets/images/jquery-logo.png" />
+    <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="js/geolocation.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>
+    <script type="text/javascript" src="js/json2.js"></script> 
+    <!-- jQuery UI Map v3 -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.min.js"></script>
+</head>
+
+
+<div id="optionsPage" data-role="page" data-theme="a" data-add-back-btn="true">
+
+    <div data-role="header" data-theme="a" data-position="fixed">
+        <h1>Options</h1>
+        <a data-rel="back" class="ui-btn-left ui-btn ui-btn-up-a ui-btn-corner-all ui-shadow" data-theme="a">
+            <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+                <span class="ui-btn-text">Back</span>
+            </span>
+        </a>
+    </div>
+
+	<div data-role="content" data-theme="a">
+		<div data-role="collapsible" data-theme="a" data-content-theme="a">
+			<h3>Map</h3>
+			<p><button href="#" onclick="javascript:clearWatch();"> clearWatch</button></p>
+			<p><button href="#" onclick="javascript:watchPosition();">watchPos</button></p>
+			<p><button href="#" onclick="javascript:getPosition();">getPos</button></p>
+		</div>
+		<div data-role="collapsible" data-theme="a" data-content-theme="a">
+			<h3>Profile Image</h3>
+			<p><button onclick="getImage();">Upload a Photo</button></p>
+			<p><button onclick="takeImage();">takeImage</button></p>
+		</div>
+	</div>		
+
+</div>
+</body>
+</html>
