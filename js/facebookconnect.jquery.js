@@ -7,6 +7,7 @@
 
 $.facebook = {
 
+
 	// change this for your facebook app api key
 	apikey : "54d4eb8cf2a7ddb90f8986fb52752f1f",
 
@@ -25,6 +26,8 @@ $.facebook = {
 		this.onloadFunctions[this.onloadFunctions.length] = thefunction
 	}
 };
+ 
+       
 
 
 /// LOADING FACEBOOK JAVASCRIPT API...
@@ -55,7 +58,7 @@ FB_RequireFeatures(["Api"], function(){
 	FB.Facebook.init($.facebook.apikey, $.facebook.channelpath);
     FB.ensureInit(function() {
     	$.fb = FB.Facebook.apiClient;
-    	FB.Connect.ifUserConnected(function() {
+    	FB.Connect.ifUserConnected(function(){
     	for(var i=0;i<$.facebook.onloadFunctions.length;i++)
     	{
     		$.facebook.onloadFunctions[i]();
