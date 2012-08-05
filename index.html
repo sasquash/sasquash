@@ -3,6 +3,7 @@
 <head>
     <title></title>
 
+
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/themes/default.css" />
@@ -14,40 +15,21 @@
    
     <script type="text/javascript" charset="utf-8" src="js/geolocation.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/cordova-2.0.0.js"></script>
-     <script type="text/javascript" src="js/childbrowser.js"></script> 
     <script type="text/javascript" src="js/json2.js"></script> 
     <!-- jQuery UI Map v3 -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.min.js"></script>
-<script type="application/x-javascript" charset="utf-8">
-  var childbrowser;
- 
-function onBodyLoad()
-{
-document.addEventListener("deviceready", onDeviceReady, false);
-}
- 
-function onDeviceReady()
-{
-// do your thing!
-childbrowser = ChildBrowser.install();
-navigator.notification.alert("Cordova is working")
-}
- 
-    function onLinkClick() {   
- 
-    if(childbrowser != null)
-    {
-        childbrowser.onLocationChange = function(loc){ alert("In index.html new loc = " + loc); };
-        childbrowser.onClose = function(){alert("In index.html child browser closed");};
-        childbrowser.onOpenExternal = function(){alert("In index.html onOpenExternal");};
- 
-        window.plugins.childBrowser.showWebPage("http://google.com");
- 
-    }  
-}
+    <script src="js/childbrowser.js"></script>
+<script type="text/javascript">
+var url="http://www.google.com";
 
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    window.plugins.childBrowser.showWebPage(url);       
+}
 </script>
+
 </head>
 <body>
     <!-- Home Page -->
@@ -57,7 +39,6 @@ navigator.notification.alert("Cordova is working")
             <a href="options.html" data-icon="gear" rel="external" class="ui-btn-right">Options</a>
         </div>
         <div data-role="content" data-theme="a">
-
             <div data-role="controlgroup" data-type="horizontal" >
                 <a href="map.html" data-role="button" data-inline="false" class="mapIt">Map</a>
                 <a href="cordova.html" data-role="button" data-inline="false" class="mapIt">cordova</a>
