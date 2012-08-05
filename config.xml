@@ -17,4 +17,3 @@ Pedro Aspiazu
 <icon src="img/icon.png" gap:platform="android" gap:density="mdpi" />
 <icon src="img/icon.png" gap:platform="android" gap:density="hdpi" />
 </widget>
-<plugin name="org.apache.cordova.facebook.Connect" value="org.apache.cordova.facebook.ConnectPlugin"/>
