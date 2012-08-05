@@ -3,11 +3,11 @@ $('#reportListPage').live('pageshow', function(event) {
 	console.log("reports for " + id);
 	$.getJSON(serviceURL + 'getreports.php?id='+id, function (data) {
 		var reports = data.items;
-		$.each(reports, function(index, employee) {
-			$('#reportList').append('<li><a href="employeedetails.html?id=' + employee.id + '">' +
-					'<h4>' + employee.firstName + ' ' + employee.lastName + '</h4>' +
-					'<p>' + employee.title + '</p>' +
-					'<span class="ui-li-count">' + employee.reportCount + '</span></a></li>');
+		$.each(reports, function(index, user) {
+			$('#reportList').append('<li><a href="userdetails.html?id=' + user.id + '">' +
+					'<h4>' + user.firstName + ' ' + user.lastName + '</h4>' +
+					'<p>' + user.title + '</p>' +
+					'<span class="ui-li-count">' + user.reportCount + '</span></a></li>');
 		});
 		$('#reportList').listview('refresh');
 	});

@@ -8,11 +8,17 @@
             </span>
         </a>
     </div>
-    <div data-role="content" class="ui-content" role="main">    
+    <div data-role="content" class="ui-content" role="main">   
+            <div data-role="collapsible" data-theme="a" data-content-theme="a">
+            <h3>Map</h3>
+            <p><button href="#" onclick="javascript:clearWatch();"> StopAutoUptade</button></p>
+            <p><button href="#" onclick="javascript:watchPosition();">Auto Update Pos</button></p>
+            <p><button href="#" onclick="javascript:getPosition();">getPos</button></p>
+        </div> 
         <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
             <div id="map_canvas" style="height: 400px; position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">
             </div>
             <div id="geolocation"></div>
-        </div>
+        </div>     
     </div>
 </div>
