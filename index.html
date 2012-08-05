@@ -20,56 +20,32 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.min.js"></script>
 <script type="application/x-javascript" charset="utf-8">
-    function onPubFacebookBtn(){ 
-        /* On Facebook Login */
-        var my_client_id  = "REPLACE_WITH_YOUR_FACEBOOK_APP_ID",
-        my_redirect_uri   = "http://www.facebook.com/connect/login_success.html",
-        my_type           = "user_agent",
-        my_display        = "touch"
-
-        var authorize_url  = "https://graph.facebook.com/oauth/authorize?";
-        authorize_url += "client_id="+my_client_id;
-        authorize_url += "&redirect_uri="+my_redirect_uri;
-        authorize_url += "&display="+my_display;
-        authorize_url += "&scope=publish_stream";
-
-    if(window.plugins.childBrowser == null) {
-            ChildBrowser.install();
-        }
+  var childbrowser;
+ 
+function onBodyLoad()
+{
+document.addEventListener("deviceready", onDeviceReady, false);
+}
+ 
+function onDeviceReady()
+{
+// do your thing!
+childbrowser = ChildBrowser.install();
+navigator.notification.alert("Cordova is working")
+}
+ 
+    function onLinkClick() {   
+ 
+    if(childbrowser != null)
+    {
+        childbrowser.onLocationChange = function(loc){ alert("In index.html new loc = " + loc); };
+        childbrowser.onClose = function(){alert("In index.html child browser closed");};
+        childbrowser.onOpenExternal = function(){alert("In index.html onOpenExternal");};
+ 
         window.plugins.childBrowser.showWebPage("http://google.com");
-    }
-
-
-
-
-
-    function facebookLocChanged(loc){
-       /* Here we check if the url is the login success */
-       if (/login_success/.test(loc)) { 
-           var fbCode = loc.match(/code=(.*)$/)[1]
-           /* I complete the login server side, but you could use the facebook js sdk */
-           $.ajax({
-              url: 'http://localhost:8000/api/login/facebook/', 
-              dataType: 'jsonp',
-              type: 'GET',
-              data: {code: fbCode},
-              success: function(data, textStatus) {
-                  if (data['success']) {
-                    localStorage.facebook_token = data['token']; /* store the token */
-                    client_browser.close();
-                    jQT.goTo('#home');
-                  } else {
-                      client_browser.close();
-                  }
-              },
-              error: function(XMLHttpRequest, textStatus, errorThrown) {
-                  alert(textStatus);
-                  jQT.goTo('#home');
-              }
-           });
-       }
-    }
-onPubFacebookBtn();
+ 
+    }  
+}
 
 </script>
 </head>
